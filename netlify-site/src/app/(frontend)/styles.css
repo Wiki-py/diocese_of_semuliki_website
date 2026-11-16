@@ -2843,6 +2843,120 @@ textarea:focus-visible {
   }
 }
 
+.page-loading-screen,
+.route-change-loader {
+  display: grid;
+  place-items: center;
+  background: rgba(252, 250, 255, .96);
+  color: #52277c;
+}
+
+.page-loading-screen {
+  position: fixed;
+  z-index: 10000;
+  inset: 0;
+  min-height: 100svh;
+}
+
+.route-change-loader {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .16s ease, visibility .16s ease;
+  backdrop-filter: blur(4px);
+}
+
+.route-change-loader[data-visible="true"] {
+  visibility: visible;
+  opacity: 1;
+}
+
+.church-loader {
+  position: relative;
+  display: inline-grid;
+  width: 64px;
+  height: 64px;
+  flex: 0 0 auto;
+  place-items: center;
+  color: #52277c;
+}
+
+.church-loader__ring {
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(82, 39, 124, .14);
+  border-top-color: #9c7abc;
+  border-right-color: #d5aa55;
+  border-radius: 50%;
+  animation: church-loader-spin .9s linear infinite;
+}
+
+.church-loader__cross {
+  width: 27px;
+  height: 27px;
+  filter: drop-shadow(0 3px 4px rgba(50, 23, 79, .2));
+}
+
+.site-image-frame {
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+  vertical-align: middle;
+  line-height: 0;
+}
+
+.site-image-frame--fill {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+}
+
+.site-image-loader {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(248, 246, 251, .86);
+  color: #52277c;
+  transition: opacity .2s ease, visibility .2s ease;
+}
+
+.site-image-frame[data-loaded="true"] .site-image-loader {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.site-image-loader .church-loader {
+  width: 42px;
+  height: 42px;
+}
+
+.site-image-loader .church-loader__cross {
+  width: 19px;
+  height: 19px;
+}
+
+@keyframes church-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .church-loader__ring {
+    animation-duration: 2.4s;
+  }
+
+  .route-change-loader {
+    transition: none;
+  }
+}
+
 .topline {
   display: block;
   padding: 8px 0;

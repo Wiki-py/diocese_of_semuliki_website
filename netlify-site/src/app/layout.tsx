@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import type { ReactNode } from "react"
 import { Cormorant_Garamond, Manrope } from "next/font/google"
+import { RouteChangeLoader } from "./(frontend)/components/ChurchLoader"
 import "./(frontend)/styles.css"
 
 const manrope = Manrope({
@@ -37,6 +38,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-white text-zinc-950 antialiased">
         {children}
+        <RouteChangeLoader />
       </body>
     </html>
   )

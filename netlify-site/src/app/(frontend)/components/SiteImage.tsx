@@ -2,6 +2,7 @@
 
 import Image, { type ImageProps } from "next/image"
 import { useState } from "react"
+import { ChurchLoader } from "./ChurchLoader"
 
 function placeholder(alt: string) {
   const label = alt.replace(/[&<>"']/g, (character) => {
@@ -12,20 +13,47 @@ function placeholder(alt: string) {
   )}`
 }
 
-export default function SiteImage({ src, alt, onError, ...props }: ImageProps) {
+export default function SiteImage({
+  src,
+  alt,
+  fill,
+  className,
+  onLoad,
+  onError,
+  ...props
+}: ImageProps) {
   const [failedSource, setFailedSource] = useState<ImageProps["src"] | null>(null)
+  const [loadedSource, setLoadedSource] = useState<ImageProps["src"] | null>(null)
   const failed = failedSource === src
+  const loaded = loadedSource === src || failed
 
   return (
-    <Image
-      {...props}
-      alt={failed ? `${alt} — image unavailable` : alt}
-      src={failed ? placeholder(alt) : src}
-      unoptimized={failed || props.unoptimized}
-      onError={(event) => {
-        if (!failed) setFailedSource(src)
-        onError?.(event)
-      }}
-    />
+    <span
+      aria-busy={!loaded}
+      className={`site-image-frame${fill ? " site-image-frame--fill" : ""}`}
+      data-loaded={loaded ? "true" : undefined}
+    >
+      <Image
+        {...props}
+        alt={failed ? `${alt} — image unavailable` : alt}
+        className={className}
+        fill={fill}
+        src={failed ? placeholder(alt) : src}
+        unoptimized={failed || props.unoptimized}
+        onError={(event) => {
+          if (!failed) setFailedSource(src)
+          onError?.(event)
+        }}
+        onLoad={(event) => {
+          setLoadedSource(src)
+          onLoad?.(event)
+        }}
+      />
+      {!loaded && (
+        <span className="site-image-loader" aria-hidden="true">
+          <ChurchLoader decorative />
+        </span>
+      )}
+    </span>
   )
 }

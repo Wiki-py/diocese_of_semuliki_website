@@ -29,8 +29,8 @@ button, input { font: inherit; }
   width: min(1180px, calc(100% - 40px));
   margin-inline: auto; 
 }
-.topline { background: linear-gradient(100deg, #52277c, #32174f); color: rgba(238, 0, 230, 0.82); padding: 9px 0; font-size: 10px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
-.site-header { position: sticky; top: 0; z-index: 50; background: rgba(234, 0, 255, 0.97); box-shadow: 0 8px 28px rgba(50,23,79,.07); backdrop-filter: blur(16px); }
+.topline { background: #452567; color: rgb(255, 0, 0); padding: 9px 0; font-size: 10px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; text-align: center; }
+.site-header { position: sticky; top: 0; z-index: 50; background: rgba(234, 0, 255, 0.603); box-shadow: 0 8px 28px rgba(50,23,79,.07); backdrop-filter: blur(16px); }
 .header-main { min-height: 86px; display: flex; align-items: center; gap: 16px; }
 .brand { display: flex; align-items: center; gap: 12px; margin-right: auto; }
 .logo-placeholder { width: 80px; height: 80px; border: 1px solid rgba(213,170,85,.75); color: #9c7abc; display: grid; place-items: center; border-radius: 50%; flex: 0 0 auto; background: #fcfaff; box-shadow: 0 0 0 4px rgba(213,170,85,.1); }
@@ -52,6 +52,7 @@ button, input { font: inherit; }
 .nav-chevron { width: 7px; height: 7px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform .2s; }
 .nav-group[data-open="true"] > .nav-trigger .nav-chevron { transform: translateY(2px) rotate(225deg); }
 .nav-dropdown-panel { position: absolute; z-index: 5; top: calc(100% + 8px); left: 0; min-width: 220px; padding: 8px; border: 1px solid rgba(50,23,79,.08); border-radius: 14px; background: white; box-shadow: 0 18px 44px rgba(50,23,79,.16); }
+.nav-dropdown-panel[hidden] { display: none; }
 .nav-dropdown-panel::before { position: absolute; right: 0; bottom: 100%; left: 0; height: 10px; content: ""; }
 .nav-dropdown-panel a { display: flex; align-items: center; min-height: 42px; padding: 0 12px; border-radius: 9px; color: #344158; font-size: 12px; font-weight: 700; white-space: nowrap; transition: color .2s, background .2s; }
 .nav-dropdown-panel a:hover, .nav-dropdown-panel a:focus-visible { background: #f5f1f8; color: #52277c; }
@@ -890,16 +891,290 @@ textarea:focus-visible {
 }
 
 .inner-cta {
-  padding: 64px 0;
+  padding: clamp(40px, 6vw, 80px) 0;
   background: #f3f0e9;
 }
 
+.inner-cta > .shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "eyebrow actions"
+    "title actions";
+  align-items: center;
+  gap: 12px clamp(24px, 5vw, 64px);
+  overflow: hidden;
+  padding: clamp(30px, 5vw, 58px);
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 92% 8%, rgba(156, 122, 188, .4), transparent 32%),
+    linear-gradient(120deg, #32174f, #52277c);
+  box-shadow: 0 24px 60px rgba(50, 23, 79, .16);
+  color: #fff;
+  text-align: left;
+}
+
+.inner-cta > .shell > p {
+  grid-area: eyebrow;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: #e6daf0;
+}
+
+.inner-cta > .shell > p::before {
+  width: 26px;
+  height: 2px;
+  background: #d5aa55;
+  content: "";
+}
+
 .inner-cta h2 {
-  max-width: 720px;
+  grid-area: title;
+  max-width: 680px;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(34px, 4.5vw, 58px);
+  letter-spacing: -.025em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.inner-cta > .shell > div {
+  grid-area: actions;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
 }
 
 .inner-cta .button {
-  border-radius: 6px;
+  min-height: 50px;
+  padding-inline: clamp(16px, 2vw, 24px);
+  border-radius: 8px;
+  font-size: 10px;
+  letter-spacing: .06em;
+  white-space: nowrap;
+}
+
+.inner-cta .button-gold {
+  border: 1px solid #d5aa55;
+  background: #d5aa55;
+  color: #32174f;
+}
+
+.inner-cta .button-gold:hover {
+  border-color: #e7ca83;
+  background: #e7ca83;
+}
+
+.inner-cta .button-ghost {
+  border: 1px solid rgba(255, 255, 255, .7);
+  background: transparent;
+  color: #fff;
+}
+
+.inner-cta .button-ghost:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, .12);
+}
+
+.inner-contact {
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  overflow: hidden;
+  border: 1px solid #e6deed;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 18px 48px rgba(50, 23, 79, .1);
+}
+
+.inner-contact > section,
+.inner-contact > .contact-form {
+  min-width: 0;
+  padding: clamp(24px, 4vw, 48px);
+}
+
+.inner-contact > section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 100% 0, rgba(156, 122, 188, .3), transparent 35%),
+    linear-gradient(145deg, #32174f, #45235f);
+}
+
+.inner-contact > section::after {
+  position: absolute;
+  right: -54px;
+  bottom: -78px;
+  width: 190px;
+  height: 190px;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 50%;
+  box-shadow: 0 0 0 22px rgba(255, 255, 255, .025), 0 0 0 46px rgba(255, 255, 255, .02);
+  content: "";
+  pointer-events: none;
+}
+
+.inner-contact__eyebrow {
+  margin: 0 0 12px;
+  color: #e6daf0;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.inner-contact h3 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: clamp(27px, 3vw, 36px);
+}
+
+.inner-contact__intro {
+  max-width: 440px;
+  margin: 0;
+  color: rgba(255, 255, 255, .78);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.inner-contact__details {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.inner-contact__details a {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .07);
+  transition: background .2s, border-color .2s;
+}
+
+.inner-contact__details a:hover {
+  border-color: rgba(255, 255, 255, .35);
+  background: rgba(255, 255, 255, .12);
+}
+
+.inner-contact__details a span {
+  color: #e6daf0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.inner-contact__details a strong {
+  overflow-wrap: anywhere;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.inner-contact__note {
+  position: relative;
+  z-index: 1;
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, .65);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.inner-contact > .contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: #fff;
+  color: #32174f;
+}
+
+.contact-form__intro {
+  max-width: 500px;
+  margin: 0 0 22px;
+  color: #45235f;
+  font-size: clamp(15px, 1.7vw, 18px);
+  line-height: 1.7;
+}
+
+.contact-form__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: min(100%, 420px);
+  min-height: 58px;
+  margin: 0;
+  padding: 0 20px;
+  border: 1px solid #52277c;
+  border-radius: 10px;
+  background: #52277c;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: none;
+  transition: background .2s, border-color .2s, transform .2s;
+}
+
+.contact-form__button span:last-child {
+  font-size: 20px;
+  transition: transform .2s;
+}
+
+.contact-form__button:hover {
+  transform: translateY(-2px);
+  border-color: #32174f;
+  background: #32174f;
+}
+
+.contact-form__button:hover span:last-child {
+  transform: translateX(3px);
+}
+
+.contact-form__note {
+  margin: 14px 0 0;
+  color: #746b7c;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  .inner-contact {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .inner-contact > section,
+  .inner-contact > .contact-form {
+    padding: clamp(24px, 6vw, 36px);
+  }
+
+  .contact-form__button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 820px) {
+  .inner-cta > .shell {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "eyebrow"
+      "title"
+      "actions";
+  }
+
+  .inner-cta > .shell > div {
+    justify-content: flex-start;
+  }
 }
 
 .site-footer {
@@ -2077,8 +2352,22 @@ textarea:focus-visible {
     padding-block: 44px;
   }
 
+  .inner-cta > .shell {
+    padding: 24px 20px;
+    border-radius: 18px;
+  }
+
   .inner-cta h2 {
     font-size: clamp(28px, 9vw, 34px);
+  }
+
+  .inner-cta > .shell > div,
+  .inner-cta .button {
+    width: 100%;
+  }
+
+  .inner-cta .button {
+    white-space: normal;
   }
 
   .parishes-page {
@@ -2551,5 +2840,347 @@ textarea:focus-visible {
   .ministry-invitation .button {
     width: 100%;
     justify-content: center;
+  }
+}
+
+.topline {
+  display: block;
+  padding: 8px 0;
+  background: #32174f;
+  color: #e6daf0;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: .04em;
+  text-align: center;
+  text-transform: none;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid #eee8f3;
+  background: rgba(255, 255, 255, .97);
+  box-shadow: 0 8px 24px rgba(50, 23, 79, .07);
+  backdrop-filter: blur(16px);
+}
+
+.header-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  min-height: 0;
+  padding-block: 12px;
+}
+
+.brand {
+  width: fit-content;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+}
+
+.brand-wac-logo {
+  width: min(190px, 22vw);
+  height: auto;
+}
+
+.brand-diocese-logo {
+  width: 54px;
+  height: 54px;
+}
+
+.brand > span {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  border-left: 1px solid #e6deed;
+  padding-left: 14px;
+}
+
+.brand > span strong {
+  color: #32174f;
+  font-size: 17px;
+  line-height: 1.15;
+}
+
+.brand > span small {
+  margin: 0;
+  color: #805da1;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .045em;
+}
+
+.desktop-navigation {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3px;
+  min-width: 0;
+  padding: 6px;
+  border: 1px solid #eee8f3;
+  border-radius: 12px;
+  background: #faf8fc;
+}
+
+.desktop-navigation > a,
+.desktop-navigation > .nav-group > .nav-trigger {
+  min-width: 0;
+  min-height: 40px;
+  gap: 6px;
+  padding-inline: clamp(7px, .75vw, 11px);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #51465d;
+  font-size: clamp(10px, .84vw, 12px);
+  font-weight: 750;
+  letter-spacing: 0;
+  transition: color .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.desktop-navigation > a:hover,
+.desktop-navigation > .nav-group > .nav-trigger:hover {
+  border-color: #e6deed;
+  background: #fff;
+  color: #52277c;
+}
+
+.desktop-navigation > a[aria-current="page"],
+.desktop-navigation > .nav-group[data-active="true"] > .nav-trigger {
+  border-color: #e6deed;
+  background: #f0eaf6;
+  color: #32174f;
+  box-shadow: inset 0 -2px #805da1;
+}
+
+.nav-group {
+  flex: 0 0 auto;
+}
+
+.nav-chevron {
+  width: 6px;
+  height: 6px;
+}
+
+.nav-dropdown-panel {
+  top: calc(100% + 10px);
+  min-width: 230px;
+  padding: 7px;
+  border-color: #e6deed;
+  border-radius: 12px;
+  box-shadow: 0 18px 42px rgba(50, 23, 79, .16);
+}
+
+.nav-dropdown-panel a {
+  min-height: 42px;
+  border-radius: 7px;
+  color: #51465d;
+  font-size: 12px;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+.mobile-menu-toggle {
+  width: 46px;
+  height: 46px;
+  place-content: center;
+  border: 1px solid #e6deed;
+  border-radius: 12px;
+  background: #32174f;
+  box-shadow: 0 5px 14px rgba(50, 23, 79, .14);
+}
+
+.mobile-menu-toggle span {
+  background: #fff;
+}
+
+.mobile-menu[data-open="true"] .mobile-menu-toggle {
+  background: #52277c;
+}
+
+.mobile-menu > .mobile-navigation-links {
+  top: calc(100% + 10px);
+  right: 0;
+  display: grid;
+  width: min(460px, calc(100vw - 28px));
+  max-height: min(76vh, 680px);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4px;
+  padding: 10px;
+  border: 1px solid #e6deed;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 22px 54px rgba(50, 23, 79, .2);
+}
+
+.mobile-navigation-links > a,
+.nav-group-mobile > .nav-trigger {
+  width: 100%;
+  min-height: 46px;
+  padding-inline: 14px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  color: #51465d;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.mobile-navigation-links > a:hover,
+.nav-group-mobile > .nav-trigger:hover {
+  background: #faf8fc;
+  color: #52277c;
+}
+
+.mobile-navigation-links > a[aria-current="page"],
+.nav-group-mobile[data-active="true"] > .nav-trigger {
+  border-color: #e6deed;
+  background: #f2edf7;
+  color: #32174f;
+}
+
+.nav-group-mobile {
+  min-width: 0;
+}
+
+.nav-group-mobile[data-open="true"] {
+  grid-column: auto;
+}
+
+.nav-group-mobile .nav-dropdown-panel {
+  margin: 3px 0 5px 12px;
+  padding: 4px 0 4px 9px;
+  border-left: 2px solid #d5c3e3;
+}
+
+.nav-group-mobile .nav-dropdown-panel a {
+  min-height: 42px;
+  padding-inline: 12px;
+  border-radius: 7px;
+  color: #655b70;
+  font-size: 12px;
+}
+
+.nav-group-mobile .nav-dropdown-panel a:hover,
+.nav-group-mobile .nav-dropdown-panel a[aria-current="page"] {
+  background: #f5f1f8;
+  color: #32174f;
+}
+
+.mobile-menu-toggle:focus-visible,
+.desktop-navigation a:focus-visible,
+.desktop-navigation button:focus-visible,
+.mobile-navigation-links a:focus-visible,
+.mobile-navigation-links button:focus-visible {
+  outline: 3px solid #9c7abc;
+  outline-offset: 2px;
+}
+
+@media (max-width: 1180px) {
+  .topline {
+    padding-block: 7px;
+    font-size: 9px;
+  }
+
+  .header-main {
+    display: flex;
+    min-height: 76px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-block: 9px;
+  }
+
+  .brand {
+    gap: 9px;
+  }
+
+  .brand-wac-logo {
+    width: min(160px, 24vw);
+  }
+
+  .brand-diocese-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .brand > span {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .brand > span strong {
+    font-size: 15px;
+  }
+
+  .brand > span small {
+    font-size: 8px;
+  }
+
+  .desktop-navigation {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .topline {
+    padding-block: 6px;
+    font-size: 8px;
+    letter-spacing: .02em;
+  }
+
+  .header-main {
+    min-height: 66px;
+    gap: 6px;
+    padding-block: 7px;
+  }
+
+  .brand {
+    gap: 6px;
+  }
+
+  .brand-wac-logo {
+    width: clamp(62px, 20vw, 94px);
+  }
+
+  .brand-diocese-logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brand > span strong {
+    max-width: 112px;
+    font-size: clamp(11px, 3.2vw, 14px);
+  }
+
+  .brand > span small {
+    max-width: 112px;
+    font-size: 7px;
+    line-height: 1.3;
+  }
+
+  .mobile-menu-toggle {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+  }
+
+  .mobile-menu > .mobile-navigation-links {
+    top: calc(100% + 8px);
+    width: min(460px, calc(100vw - 24px));
+    max-height: min(74vh, 620px);
+    padding: 8px;
   }
 }

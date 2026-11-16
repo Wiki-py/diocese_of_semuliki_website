@@ -416,14 +416,26 @@ function Special({ variant }: { variant: PageData["variant"] }) {
     return (
       <div className="inner-contact">
         <section>
-          <p>Verified details forthcoming</p>
+          <p className="inner-contact__eyebrow">Get in touch</p>
           <h3>Contact the Diocese</h3>
-          <span>
-            Phone: (+256) 791106785 <br />
-            Email: wac.semulikidiocese@gmail.com <br />
+          <p className="inner-contact__intro">
+            We welcome your questions and messages. Reach out using the contact
+            details below.
+          </p>
+          <div className="inner-contact__details">
+            <a href="tel:+256791106785">
+              <span>Phone</span>
+              <strong>(+256) 791106785</strong>
+            </a>
+            <a href="mailto:wac.semulikidiocese@gmail.com">
+              <span>Email</span>
+              <strong>wac.semulikidiocese@gmail.com</strong>
+            </a>
+          </div>
+          <p className="inner-contact__note">
             Official address, telephone, email, social links and map will be
-            added after confirmation.
-          </span>
+            updated as details are confirmed.
+          </p>
         </section>
         <ContactForm />
       </div>
@@ -715,6 +727,151 @@ export const pages: Record<string, PageData> = {
       ],
       "A planned initiative with future opportunities for participation.",
     ),
+  },
+  developmentEducation: {
+    path: "/community-development/education",
+    eyebrow: "Community Development · Education",
+    title: "Learning that equips every generation.",
+    intro:
+      "A focus on inclusive learning, practical skills and opportunities for children, young people and adults to develop their abilities.",
+    image: images.education,
+    imageAlt: "Children participating in education",
+    notice:
+      "These are planned priorities. No school names, enrollment figures or completed programmes are claimed.",
+    cards: [
+      {
+        title: "Access and Inclusion",
+        copy: "Encourage learning opportunities that welcome children and young people from different backgrounds.",
+      },
+      {
+        title: "Learning Environments",
+        copy: "Support safe, welcoming spaces and learning resources that help teaching and learning thrive.",
+      },
+      {
+        title: "Skills for Life",
+        copy: "Promote practical and vocational learning that builds knowledge, confidence and useful skills.",
+      },
+      {
+        title: "Family and Community",
+        copy: "Work alongside families, churches and partners to strengthen support for learners.",
+      },
+    ],
+  },
+  developmentHealth: {
+    path: "/community-development/health",
+    eyebrow: "Community Development · Health",
+    title: "Promoting health and community wellbeing.",
+    intro:
+      "Encouraging health awareness, prevention and compassionate community-centred care that upholds the dignity of every person.",
+    image: images.community,
+    imageAlt: "Community members gathering together",
+    notice:
+      "These are planned priorities; no clinics, medical services or health outcomes are claimed as operational.",
+    cards: [
+      {
+        title: "Health Awareness",
+        copy: "Share clear, responsible information that helps people make informed decisions about their wellbeing.",
+      },
+      {
+        title: "Prevention and Wellbeing",
+        copy: "Encourage practical habits and community awareness that support healthier lives.",
+      },
+      {
+        title: "Compassionate Care",
+        copy: "Promote respectful support that recognizes the needs and dignity of individuals and families.",
+      },
+      {
+        title: "Trusted Partnerships",
+        copy: "Explore collaboration with qualified health providers and community organizations.",
+      },
+    ],
+  },
+  developmentSocialServices: {
+    path: "/community-development/social-services",
+    eyebrow: "Community Development · Social Services",
+    title: "Care and support rooted in dignity.",
+    intro:
+      "Strengthening social wellbeing through compassionate care, inclusion and support for vulnerable people and families.",
+    image: images.outreach,
+    imageAlt: "Community outreach and support",
+    notice:
+      "These describe intended priorities, not funded or currently active social services.",
+    cards: [
+      {
+        title: "Support for Vulnerable People",
+        copy: "Encourage care and practical support for people facing hardship, isolation or barriers to participation.",
+      },
+      {
+        title: "Family and Community Care",
+        copy: "Strengthen relationships and community networks that help individuals and families flourish.",
+      },
+      {
+        title: "Inclusion and Dignity",
+        copy: "Promote participation and respectful treatment for people of all ages and circumstances.",
+      },
+      {
+        title: "Connection to Support",
+        copy: "Build relationships with trusted organizations so people can be connected with appropriate assistance.",
+      },
+    ],
+  },
+  developmentEnvironmentalStewardship: {
+    path: "/community-development/environmental-stewardship",
+    eyebrow: "Community Development · Environmental Stewardship",
+    title: "Caring for creation and our shared home.",
+    intro:
+      "Encouraging responsible care of local land, water and natural resources as part of service to present and future generations.",
+    image: images.community,
+    imageAlt: "A local community gathering",
+    notice:
+      "These are planned priorities; no environmental projects or outcomes are claimed as completed.",
+    cards: [
+      {
+        title: "Care for Local Resources",
+        copy: "Promote thoughtful stewardship of land, water and the natural resources communities depend on.",
+      },
+      {
+        title: "Environmental Awareness",
+        copy: "Encourage learning and shared responsibility for caring for creation.",
+      },
+      {
+        title: "Sustainable Livelihoods",
+        copy: "Explore approaches that support community wellbeing while respecting the natural environment.",
+      },
+      {
+        title: "Prepared Communities",
+        copy: "Strengthen awareness and readiness for environmental risks through local knowledge and partnerships.",
+      },
+    ],
+  },
+  developmentEconomicEmpowerment: {
+    path: "/community-development/economic-empowerment",
+    eyebrow: "Community Development · Economic Empowerment",
+    title: "Building livelihoods with dignity and resilience.",
+    intro:
+      "Encouraging skills, sustainable livelihoods and economic opportunity for individuals, families and communities.",
+    image: images.outreach,
+    imageAlt: "Community members working together",
+    notice:
+      "These are planned priorities. No grants, loans, income results or active programmes are represented.",
+    cards: [
+      {
+        title: "Skills and Enterprise",
+        copy: "Support learning and practical skills that can help people explore livelihood opportunities.",
+      },
+      {
+        title: "Sustainable Livelihoods",
+        copy: "Encourage resilient ways for families and communities to build economic wellbeing.",
+      },
+      {
+        title: "Responsible Stewardship",
+        copy: "Promote wise use of resources and informed choices that support long-term stability.",
+      },
+      {
+        title: "Partnership and Opportunity",
+        copy: "Build relationships with trusted partners to explore appropriate paths for economic participation.",
+      },
+    ],
   },
   news: {
     path: "/news-events",

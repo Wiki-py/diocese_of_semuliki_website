@@ -32,33 +32,44 @@ const storyLinks = [
 
 export function SiteHeader({ activeHref }: { activeHref: string }) {
   return (
-    <header className="site-header">
-      <div className="shell header-main">
-        <Link aria-label="Diocese of Semuliki home" className="brand" href="/">
-          <Image
-            alt="Worldwide Anglican Church"
-            className="brand-wac-logo"
-            height={83}
-            src="/images/World Wide Anglican Church logog.png"
-            unoptimized
-            width={293}
-          />
-          <Image
-            alt="Diocese of Semuliki"
-            className="brand-diocese-logo"
-            height={80}
-            src="/images/SEMULIKI_DIOCESE_LOGO.jpeg"
-            unoptimized
-            width={80}
-          />
-          
-          <span>
-            <strong>Diocese of Semuliki</strong>
-          </span>
-        </Link>
-        <SiteNavigation activeHref={activeHref} />
+    <>
+      <div className="topline">
+        <div className="shell">
+          <p>We are eyewitnesses of Jesus Christ all over the world. Acts 1:8</p>
+        </div>
       </div>
-    </header>
+      <header className="site-header">
+        <div className="shell header-main">
+          <Link
+            aria-label="Diocese of Semuliki home"
+            className="brand"
+            href="/"
+          >
+            <Image
+              alt="Worldwide Anglican Church"
+              className="brand-wac-logo"
+              height={83}
+              src="/images/World Wide Anglican Church logog.png"
+              unoptimized
+              width={293}
+            />
+            <Image
+              alt="Diocese of Semuliki"
+              className="brand-diocese-logo"
+              height={80}
+              src="/images/SEMULIKI_DIOCESE_LOGO.jpeg"
+              unoptimized
+              width={80}
+            />
+            <span>
+              <strong>Diocese of Semuliki</strong>
+              <small>Building faith · Transforming lives</small>
+            </span>
+          </Link>
+          <SiteNavigation activeHref={activeHref} />
+        </div>
+      </header>
+    </>
   )
 }
 

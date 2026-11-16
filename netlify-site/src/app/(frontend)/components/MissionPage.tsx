@@ -166,8 +166,11 @@ export function MissionPage() {
           <p>Our shared witness</p>
           <h2>Building Faith, Transforming Lives.</h2>
           <div>
-            <Link className="button button-gold" href="/partnerships-giving">
-              Partner With Us
+            <Link
+              className="button button-gold"
+              href="/partnerships-giving#cathedral-project"
+            >
+              Support the Cathedral Project
             </Link>
             <Link className="button button-ghost" href="/contact">
               Contact the Diocese

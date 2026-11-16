@@ -494,6 +494,30 @@ export function DiocesanPage({ data }: { data: PageData }) {
                 and mobile-money details will be published here once confirmed.
               </p>
             </div>
+            <article
+              aria-labelledby="cathedral-project-title"
+              className="cathedral-campaign"
+              id="cathedral-project"
+            >
+              <div>
+                <p className="eyebrow">Cathedral building campaign</p>
+                <h3 id="cathedral-project-title">
+                  Help build a cathedral for Semuliki.
+                </h3>
+                <p>
+                  The Diocese is raising support toward a new cathedral, with a
+                  fundraising target of UGX 1 billion. Contact us to discuss a
+                  pledge or learn how you can support the project.
+                </p>
+                <Link className="button button-gold" href="/contact">
+                  Contact us to support the project
+                </Link>
+              </div>
+              <div className="cathedral-campaign-target">
+                <span>Fundraising target</span>
+                <strong>UGX 1 billion</strong>
+              </div>
+            </article>
             <div className="giving-options">
               <article>
                 <span>Bank transfer</span>
@@ -551,8 +575,11 @@ export function DiocesanPage({ data }: { data: PageData }) {
           <p>Our shared witness</p>
           <h2>Building Faith, Transforming Lives.</h2>
           <div>
-            <Link className="button button-gold" href="/partnerships-giving">
-              Partner With Us
+            <Link
+              className="button button-gold"
+              href="/partnerships-giving#cathedral-project"
+            >
+              Support the Cathedral Project
             </Link>
             <Link className="button button-ghost" href="/contact">
               Contact the Diocese
@@ -918,7 +945,7 @@ export const pages: Record<string, PageData> = {
     image: images.outreach,
     imageAlt: "Community members working together",
     notice:
-      "Official bank and mobile-money payment details are coming soon. Please do not send funds until they are published here.",
+      "The Diocese is raising support toward a new cathedral with a target of UGX 1 billion. Official bank and mobile-money details are coming soon; please do not send funds until they are published here.",
     cards: cards(
       ["Pray", "Connect", "Share Expertise", "Support Initiatives"],
       "A future pathway for trusted mission partnership.",

@@ -114,6 +114,12 @@ export default function HomePage() {
               <Link className="button button-gold" href="/mission">
                 Learn more <span aria-hidden="true">→</span>
               </Link>
+              <Link
+                className="button button-ghost"
+                href="/partnerships-giving#cathedral-project"
+              >
+                Support the Cathedral
+              </Link>
             </div>
           </div>
         </div>
@@ -353,11 +359,18 @@ export default function HomePage() {
             <ReadMore href="/partnerships-giving">
               Read more about partnership
             </ReadMore>
+            <Link
+              className="button button-gold"
+              href="/partnerships-giving#cathedral-project"
+            >
+              Support the Cathedral Project
+            </Link>
             <ReadMore href="/contact">Contact the Diocese</ReadMore>
           </div>
           <p className="home-giving-note">
-            Official giving details are not yet available. Please do not send
-            funds to unverified accounts or numbers.
+            The cathedral fundraising target is UGX 1 billion. Official giving
+            details are not yet available; please do not send funds to
+            unverified accounts or numbers.
           </p>
         </div>
       </section>

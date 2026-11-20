@@ -3,6 +3,14 @@ import Image from "./components/SiteImage"
 import Link from "next/link"
 
 import { SiteFooter, SiteHeader } from "./components/SiteChrome"
+import { createPageMetadata } from "./page-metadata"
+
+export const metadata = createPageMetadata(
+  "Diocese of Semuliki | Building Faith, Transforming Lives and Winning Souls",
+  "The Diocese of Semuliki is part of the Worldwide Anglican Church, proclaiming the Gospel, forming disciples, serving communities, and building faith across the Semuliki region.",
+  "/",
+  true,
+)
 
 const ministryHighlights = [
   ["Discipleship", "Growing in faith and serving faithfully."],

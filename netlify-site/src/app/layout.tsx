@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import type { ReactNode } from "react"
 import { Cormorant_Garamond, Manrope } from "next/font/google"
 import { RouteChangeLoader } from "./(frontend)/components/ChurchLoader"
+import { siteUrl } from "./site-url"
 import "./(frontend)/styles.css"
 
 const manrope = Manrope({
@@ -16,14 +17,38 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.URL ||
-      process.env.NEXT_PUBLIC_SITE_URL ||
-      "https://wacdioceseofsemuliki.netlify.app",
-  ),
-  title: "Diocese of Semuliki",
+  metadataBase: siteUrl,
+  title: {
+    default:
+      "Diocese of Semuliki | Building Faith, Transforming Lives and Winning Souls",
+    template: "%s | Diocese of Semuliki",
+  },
   description:
     "Building faith, transforming lives, and winning souls through Christian witness, discipleship, and community service in the Semuliki region.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Diocese of Semuliki",
+    title: "Diocese of Semuliki",
+    description:
+      "Building faith, transforming lives, and winning souls through Christian witness, discipleship, and community service in the Semuliki region.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Diocese of Semuliki",
+    description:
+      "Building faith, transforming lives, and winning souls through Christian witness, discipleship, and community service in the Semuliki region.",
+  },
 }
 
 export default function RootLayout({

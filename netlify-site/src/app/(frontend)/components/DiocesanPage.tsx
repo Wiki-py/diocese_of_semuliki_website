@@ -294,6 +294,12 @@ function Special({ variant }: { variant: PageData["variant"] }) {
             image: "/images/Secretary_of_the_dioces_%20Gerald.jpeg",
             imageAlt: "Kule Gerald, Diocesan Secretary",
           },
+          {
+            role: "Projects and Development Officer",
+            name: "Kyomugisha Damali",
+            image: "/images/project development officer.jpeg",
+            imageAlt: "Kyomugisha Damali, Projects and Development Officer",
+          },
           { role: "Mission & Ministry Lead" },
           { role: "Education Lead" },
         ].map(({ role, name, image, imageAlt }) => (
@@ -663,7 +669,7 @@ export const pages: Record<string, PageData> = {
     image: images.worship,
     imageAlt: "Christian worship leaders",
     notice:
-      "Portraits are provided for the Diocesan Bishop and Secretary. Additional verified leadership details will be added when available.",
+      "Portraits are provided for the Diocesan Bishop, Diocesan Secretary and Projects and Development Officer. Additional verified leadership details will be added when available.",
     variant: "leaders",
     cards: cards(
       ["Pastoral Care", "Good Governance", "Mission Focus"],

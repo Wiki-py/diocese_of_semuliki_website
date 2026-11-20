@@ -579,7 +579,7 @@ export function DiocesanPage({ data }: { data: PageData }) {
       <section className="inner-cta">
         <div className="shell">
           <p>Our shared witness</p>
-          <h2>Building Faith, Transforming Lives.</h2>
+          <h2>Building Faith, Transforming Lives and Winning Souls.</h2>
           <div>
             <Link
               className="button button-gold"

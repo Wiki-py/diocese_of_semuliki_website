@@ -1587,6 +1587,7 @@ textarea:focus-visible {
 }
 
 .home-welcome-grid,
+.home-bishop-message-grid,
 .home-plan-grid,
 .home-development-grid,
 .home-partnership-grid {
@@ -1660,6 +1661,80 @@ textarea:focus-visible {
   font-family: var(--font-serif), serif;
   font-size: 28px;
   line-height: 1.2;
+}
+
+.home-bishop-message {
+  padding: 88px 0;
+  background: #f4eff8;
+}
+
+.home-bishop-message-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, .75fr) minmax(0, 1.25fr);
+  gap: clamp(32px, 6vw, 76px);
+  align-items: center;
+}
+
+.home-bishop-portrait {
+  position: relative;
+  min-height: 460px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #e6daf0;
+  box-shadow: 0 20px 50px rgba(50, 23, 79, .16);
+}
+
+.home-bishop-photo {
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+.home-bishop-message-content .eyebrow {
+  margin: 0 0 12px;
+  color: #754b99;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.home-bishop-message-content h2 {
+  max-width: 660px;
+  margin: 0;
+  color: #32174f;
+  font-family: var(--font-sans), sans-serif;
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 750;
+  letter-spacing: -.035em;
+  line-height: 1.12;
+}
+
+.home-bishop-message-copy {
+  margin-top: 20px;
+  color: #62596b;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.home-bishop-message-copy p {
+  margin: 0 0 14px;
+}
+
+.home-bishop-signoff {
+  display: grid;
+  gap: 4px;
+  margin: 24px 0 0;
+  padding-left: 16px;
+  border-left: 3px solid #9c7abc;
+  color: #32174f;
+  font-size: 13px;
+}
+
+.home-bishop-signoff span {
+  color: #754b99;
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
 .home-section {
@@ -1935,6 +2010,7 @@ textarea:focus-visible {
   }
 
   .home-welcome-grid,
+  .home-bishop-message-grid,
   .home-plan-grid,
   .home-development-grid,
   .home-partnership-grid {
@@ -2008,9 +2084,18 @@ textarea:focus-visible {
   }
 
   .home-page .home-welcome,
+  .home-page .home-bishop-message,
   .home-page .home-section,
   .home-page .home-plan {
     padding: 54px 0;
+  }
+
+  .home-bishop-portrait {
+    min-height: 340px;
+  }
+
+  .home-bishop-message-content h2 {
+    font-size: clamp(26px, 8vw, 32px);
   }
 
   .home-summary-grid-four,
@@ -2274,6 +2359,7 @@ textarea:focus-visible {
   }
 
   .home-page .home-welcome,
+  .home-page .home-bishop-message,
   .home-page .home-section,
   .home-page .home-plan,
   .home-page .home-gallery,
@@ -2282,6 +2368,7 @@ textarea:focus-visible {
   }
 
   .home-welcome-grid,
+  .home-bishop-message-grid,
   .home-plan-grid,
   .home-development-grid,
   .home-partnership-grid {

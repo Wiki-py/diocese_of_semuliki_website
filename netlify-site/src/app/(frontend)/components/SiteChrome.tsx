@@ -63,7 +63,7 @@ export function SiteHeader({ activeHref }: { activeHref: string }) {
             />
             <span>
               <strong>Diocese of Semuliki</strong>
-              <small>Building faith · Transforming lives</small>
+              <small>Building Faith · Transforming Lives · Winning Souls</small>
             </span>
           </Link>
           <SiteNavigation activeHref={activeHref} />

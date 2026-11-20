@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   ),
   title: "Diocese of Semuliki",
   description:
-    "Building faith and transforming lives through Christian witness, discipleship, and community service in the Semuliki region.",
+    "Building faith, transforming lives, and winning souls through Christian witness, discipleship, and community service in the Semuliki region.",
 }
 
 export default function RootLayout({

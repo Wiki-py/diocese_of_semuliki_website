@@ -106,7 +106,7 @@ export default function HomePage() {
         <div className="shell hero-content">
           <div className="hero-copy">
             <p className="hero-kicker">Diocese of Semuliki</p>
-            <h1>Building faith. Transforming lives.</h1>
+            <h1>Building Faith, Transforming Lives and Winning Souls.</h1>
             <p className="hero-subtitle">
               We are eyewitnesses of Jesus Christ all over the world.
             </p>
@@ -144,6 +144,54 @@ export default function HomePage() {
             <blockquote>“You are witnesses of these things.”</blockquote>
             <span>Luke 24:48</span>
           </aside>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="bishop-message-heading"
+        className="home-bishop-message"
+      >
+        <div className="shell home-bishop-message-grid">
+          <div className="home-bishop-portrait">
+            <Image
+              alt="Bishop Kwikiriza Robert, Bishop of Semuliki"
+              className="home-bishop-photo"
+              fill
+              sizes="(max-width: 700px) 100vw, 36vw"
+              src="/images/Bishop_Kwikiriza_Robert.jpeg"
+              unoptimized
+            />
+          </div>
+          <div className="home-bishop-message-content">
+            <p className="eyebrow">Leadership message</p>
+            <h2 id="bishop-message-heading">
+              A Message from the Bishop of Semuliki
+            </h2>
+            <div className="home-bishop-message-copy">
+              <p>Grace and peace to you from the Diocese of Semuliki.</p>
+              <p>
+                Welcome to our journey of faith and community. We are a
+                resilient people rooted in Christ, and we open our hearts to
+                friends across the world.
+              </p>
+              <p>
+                We invite you to partner with us—not in charity alone, but in
+                mutual respect and shared vision—so that together we can
+                strengthen education, healthcare, and hope for our people.
+              </p>
+              <p>
+                In a world often divided, I appeal for unity and peace. Let us
+                choose dialogue over division, love over fear, and
+                collaboration over isolation. Together, as one human family, we
+                can build a future of dignity and peace.
+              </p>
+              <p>May God bless you and keep you.</p>
+            </div>
+            <p className="home-bishop-signoff">
+              <strong>Bishop Kwikiriza Robert</strong>
+              <span>Bishop of Semuliki</span>
+            </p>
+          </div>
         </div>
       </section>
 
